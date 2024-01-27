@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 require("./db/db");
 const app = express();
+const port = process.env.PORT || 5001;
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,6 +25,6 @@ app.get("/", (req, res) => {
   res.send("hello");
 });
 
-app.listen(5001, () => {
-  console.log("server running on port 5001");
+app.listen(port, () => {
+  console.log(`server running on port ${port}`);
 });
